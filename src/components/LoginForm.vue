@@ -41,7 +41,8 @@ export default {
         this.logMessage = `${data.user.username} 님 환영합니다.`;
         if (data.success) {
           this.$store.commit('setUserName', data.user.username);
-          this.$router.push('/main');
+          this.$store.commit('setToken', data.token);
+          this.$router.push('/main'); 
         }
       } catch (e) {
         console.log(e.response.data);
