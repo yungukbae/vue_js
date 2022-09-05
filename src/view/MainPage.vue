@@ -1,15 +1,18 @@
 <template>
   <div>
-    <h1>Main</h1>
-    <hr />
-    <LoadingProvider v-if="isLoading"></LoadingProvider>
-    <ul v-else>
-      <PostLisItem
-        v-for="post in posts"
-        :key="post._id"
-        :item="post"
-      ></PostLisItem>
-    </ul>
+    <div>
+      <h1>Main</h1>
+      <hr />
+      <LoadingProvider v-if="isLoading"></LoadingProvider>
+      <ul v-else>
+        <PostLisItem
+          v-for="post in posts"
+          :key="post._id"
+          :item="post"
+        ></PostLisItem>
+      </ul>
+    </div>
+    <router-link to="/add" class="create-button">+</router-link>
   </div>
 </template>
 
