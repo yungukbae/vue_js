@@ -20,11 +20,13 @@
 <script>
 import { loginUser } from '@/api/index';
 import { validateEmail } from '@/util/validation';
+import { saveAuthToCookie, saveUserToCookie } from '@/util/cookies';
+
 export default {
   data() {
     return {
-      username: '',
-      password: '',
+      username: 'yunguk@test.com',
+      password: '1234',
       logMessage: '',
     };
   },
@@ -40,9 +42,11 @@ export default {
         const { data } = await loginUser(body);
         this.logMessage = `${data.user.username} 님 환영합니다.`;
         if (data.success) {
-          this.$store.commit('setUserName', data.user.username);
           this.$store.commit('setToken', data.token);
-          this.$router.push('/main'); 
+          this.$store.commit('setUserName', data.user.username);
+          saveAuthToCookie(data.token);
+          saveUserToCookie(data.user.username);
+          this.$router.push('/main');
         }
       } catch (e) {
         console.log(e.response.data);
