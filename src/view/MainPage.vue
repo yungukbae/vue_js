@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { fetchPosts } from '@/api';
+import { fetchPosts } from '@/api/posts';
 import PostLisItem from '@/components/PostListItem.vue';
 import LoadingProvider from '@/components/common/LoadingProvider.vue';
 
