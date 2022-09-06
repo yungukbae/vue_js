@@ -9,6 +9,7 @@
           v-for="post in posts"
           :key="post._id"
           :item="post"
+          @refetch="fetchNotes"
         ></PostLisItem>
       </ul>
     </div>
@@ -37,10 +38,8 @@ export default {
       this.isLoading = true;
       const res = await fetchPosts();
       if (res) {
-        setTimeout(() => {
-          this.isLoading = false;
-          this.posts = res.data.posts;
-        }, 500);
+        this.isLoading = false;
+        this.posts = res.data.posts;
       }
     },
   },
