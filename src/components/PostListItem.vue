@@ -6,7 +6,7 @@
       <div>
         {{ item.contents }}
       </div>
-      <p>{{ item.createdAt }}</p>
+      <p>{{ item.createdAt | formatDate }}</p>
     </li>
     <p @click="routeEditPage">수정</p>
     <p @click="deleteItem">제거</p>
@@ -35,6 +35,11 @@ export default {
       this.$router.push(`/post/${id}`);
     },
   },
+  // filters: {
+  //   formatDate(date) {
+  //     return new Date(date);
+  //   },
+  // },
 };
 </script>
 

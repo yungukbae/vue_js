@@ -20,9 +20,14 @@ function getUserFromCookie() {
   );
 }
 
+function deleteCookie(input) {
+  document.cookie = `${input}=; expires=Thu, `;
+}
+
 export {
   saveAuthToCookie,
   saveUserToCookie,
   getAuthFromCookie,
   getUserFromCookie,
+  deleteCookie,
 };

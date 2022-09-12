@@ -4,6 +4,7 @@
       <div>
         <label for="usename">id:</label>
         <input id="usename" type="text" v-model="username" />
+        <p v-if="isUsernameValid">Please enter an email address</p>
       </div>
       <div>
         <label for="password">pw:</label>
@@ -23,8 +24,8 @@ import { validateEmail } from '@/util/validation';
 export default {
   data() {
     return {
-      username: 'yunguk@test.com',
-      password: '1234',
+      username: '',
+      password: '',
       logMessage: '',
     };
   },
