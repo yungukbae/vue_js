@@ -2,15 +2,21 @@
   <div>
     <form @submit.prevent="submit">
       <div>
-        <label for="usename">id:</label>
-        <input id="usename" type="text" v-model="username" />
-        <p v-if="isUsernameValid">Please enter an email address</p>
+        <label for="username">id:</label>
+        <input id="username" type="text" v-model="username" />
+        <p class="warning" v-if="isUsernameValid">
+          Please enter an email address
+        </p>
       </div>
       <div>
         <label for="password">pw:</label>
         <input id="password" type="text" v-model="password" />
       </div>
-      <button :disabled="!isUsernameValid || !password" type="submit">
+      <button
+        :disabled="!isUsernameValid || !password"
+        type="submit"
+        class="btn"
+      >
         login
       </button>
     </form>
